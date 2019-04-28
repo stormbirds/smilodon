@@ -18,12 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 
-    @Reference
-    private RpcUserService userService;
+    @Reference(version = "1.0.0")
+    private RpcUserService rpcUserService;
 
     @ResponseBody
     @RequestMapping(value = "/getuser")
     public String getUser(@RequestParam Long id){
-        return userService.getUser(id);
+        return rpcUserService.getUser(id);
     }
 }
